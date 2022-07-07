@@ -74,3 +74,19 @@ def update_screen(self):
                 self.visualised = False
                 
     pygame.display.update()
+
+
+if __name__ == "__main__":
+    from matplotlib import pyplot as plt
+    from numpy import arange
+
+    X = arange(-8, 8.1, 0.1)
+    Y = spectrum(X)
+    for curve, color in zip(Y, "rgb"):
+        plt.plot(X, curve, color = color)
+    
+    plt.gcf().canvas.set_window_title("Spectrum")
+    plt.title("Colour distribution")
+    plt.xlabel("Weight")
+    plt.ylabel("Colour intensity")
+    plt.show()
